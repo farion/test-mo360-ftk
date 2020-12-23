@@ -62,7 +62,7 @@ const devConfig = {
   plugins: [
     new forkTsCheckerWebpackPlugin({
       tsconfig: path.resolve(process.cwd(), 'tsconfig.dev.json'),
-      eslint: true,
+      eslint: false,
       watch: [path.resolve(process.cwd(), 'src')],
     }),
     new webpack.NamedModulesPlugin(),

@@ -19,7 +19,7 @@
   "scripts": {
     "start": "webpack-dev-server --env.build=dev",
     "start:swidget": "webpack-dev-server --port 7070 --env.build=dev --env.swidget=true",
-    "start:host": "webpack-dev-server --env.build=dev --env.exposed=true",
+    "start:host": "webpack-dev-server --port 8888 --env.build=dev --env.exposed=true",
     "build": "npm run clean && webpack --env.build=prod",
     "build:ci": "npm run clean && webpack --env.build=prod --env.verbose=true",
     "build:host": "npm run clean && webpack --env.build=prod --env.exposed=true",

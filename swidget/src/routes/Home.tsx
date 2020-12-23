@@ -1,24 +1,24 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2020 Daimler TSS GmbH
 
-import { Container, Button } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import * as React from 'react';
+import { Component } from 'react';
+import TestService from '../services/TestService';
+import { inject, withInject } from '@daimler/ftk-core';
 
-import { useContext, useState } from 'react';
-import { MyContext } from '../ContextWrapper';
+class Home extends Component<{}, {}> {
 
-const Home = () => {
+    @inject()
+    private testService: TestService;
 
-  const [fake,setFake] = useState<boolean>();
-
-  const myState = useContext(MyContext);
-
-  return (
-    <Container>
-      SWIDGET {myState.foo}
-      <Button onClick={() => setFake(!fake)}>Reload State</Button>
-    </Container>
-  );
+    public render() {
+        return (
+            <Container>
+                Hallo Swidget {this.testService.test()}
+            </Container>
+        );
+    }
 };
 
-export default Home;
+export default withInject(Home);
